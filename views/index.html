@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="container">
+
+    <h1>Welcome to Text Bomber</h1>
+    <p> Text Bomber is a tool to send repeated text messages from an email address. You can select the frequency and content of the text messages. Please select your options below.</p>
+
+    <form action="/submit" method="post">
+
+      Title This Request (this will create the request's url)<br>
+      <input type="text" name="title"></input><br><br>
+
+      Phone Number<br>
+      <input type="tel" name="phone_number"></input><br><br>
+
+      Select Carrier<br>
+      <select name="carrier">
+        <option value="Verizon">Verizon</option>
+        <option value="AT&amp;T">AT&amp;T</option>
+        <option value="T-Mobile">T-Mobile</option>
+      </select><br><br>
+
+      Set Interval<br>
+      <select name="interval">
+        <option value="1hour" >Every Hour</option>
+        <option value="6hours">Every 6 Hours</option>
+        <option value="24hours" selected>Everyday</option>
+      </select><br><br>
+
+<!-- Add file upload functionality
+      Select Photo (optional)<br>
+      <input type="file" name="photo"></input><br><br>
+-->
+
+      Write Your Message<br>
+      <input type="text" name="message"></input><br><br>
+      <button type="submit">Add Request</button><br>
+    </form>
+  <br>
+
+  <div class="requests">
+    {% if requests.length > 0 %}
+      <ul>
+      {% for request in requests %}
+        <li>{{ request| page_link }}</li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      No one has made any requests yet.
+    {% endif %}
+  </div>
+
+  </div>
+{% endblock %}

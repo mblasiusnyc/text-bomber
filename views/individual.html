@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="container">
+
+    <h1>Welcome to Text Bomber</h1>
+    <p> Text Bomber is a tool to send repeated text messages from an email address. You can select the frequency and content of the text messages. Please select your options below.</p>
+
+
+      Title:<br>
+      {{ request.title }}
+      <br><br>
+
+      Phone Number:<br>
+      {{ request.phone_number }}
+      <br><br>
+
+      Carrier:<br>
+      {{ request.carrier }}
+      <br><br>
+
+      Interval:<br>
+      {{ request.interval }}
+      <br><br>
+
+      Write Your Message:<br>
+      {{ request.message }}
+      <br><br>
+
+      <a href="#" class="btn btn-danger">Edit</a>
+      <a href="#" class="btn btn-danger">Delete</a>
+</div>
+{% endblock %}
